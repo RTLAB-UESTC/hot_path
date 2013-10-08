@@ -1,0 +1,11 @@
+#ifndef INJECTOR_H
+#define INJECTOR_H
+
+int WaitSignal(pid_t pid,int sig);
+int MyPtrace(int requst,pid_t pid,void *addr, void *data);
+int PtraceReadMemory(pid_t pid,void *dst,void *src,size_t len);
+int PtraceWriteMemory(pid_t pid,void *dst,void *src,size_t len);
+void GenerateCode(unsigned int *code,unsigned int *codeSize);
+int RunCode(unsigned int *code,unsigned int codeSize,pid_t pid);
+
+#endif
